@@ -19,6 +19,7 @@ Find this plugin under Posts > Github Releases.
 
 ![Screenshot](img/post-about-github-releases.png)
 
-https://raw.githubusercontent.com/akirk/post-about-github-releases/main/img/post-about-github-releases.mp4
+### Demo
 
+https://github.com/akirk/post-about-github-releases/assets/203408/3981ddd5-6c8e-49fc-abfb-7ee6281bfe95
 
