@@ -1,0 +1,12 @@
+vendor/bin/
+vendor/dealerdirect/
+vendor/php-parallel-lint/
+vendor/phpcompatibility/
+vendor/phpcsstandards/
+vendor/squizlabs/
+vendor/wp-coding-standards/
+vendor/composer/autoload_classmap.php
+vendor/composer/autoload_psr4.php
+vendor/composer/autoload_static.php
+vendor/composer/installed.json
+vendor/composer/installed.php
