@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Post about Github Releases
  * Description: Create blog posts for new releases from Github.
- * Version: 1.0
+ * Version: 1.0.0
  * Text Domain: post-about-github-releases
  */
 
@@ -202,11 +202,10 @@ class Post_About_Github_Releases {
 					'textarea_name' => 'post_content',
 					'textarea_rows' => 10,
 					'media_buttons' => false,
-
 				)
 			);
 			?>
-			<div id="selected-releases"></div>
+			<ul id="selected-releases"></ul>
 			<input type="hidden" name="github_release_ids">
 			<button class="button button-primary" type="submit" name="create_summary_post"><?php /* phpcs:ignore WordPress.WP.I18n.MissingArgDomain */ esc_html_e( 'Save Draft' ); ?></button>
 		</form>
@@ -217,13 +216,15 @@ class Post_About_Github_Releases {
 					array(
 						'meta_key'     => 'github_release_id',
 						'meta_value'   => $release->id,
-						'meta_compare' => 'IN',
 						'post_type'    => 'post',
 						'post_status'  => array( 'draft', 'publish' ),
 					)
 				);
 
 				if ( ! empty( $existing_post ) ) {
+				?><div>
+					<h3><?php echo esc_html( $release->name ); ?> <span style="color: #006600">✓</span></h3>
+				</div><?php
 					continue;
 				}
 				?>
@@ -260,7 +261,7 @@ class Post_About_Github_Releases {
 				}
 
 				if (checkbox.checked) {
-					const releaseItem = document.createElement('span');
+					const releaseItem = document.createElement('li');
 					releaseItem.textContent = version;
 					selectedReleases.appendChild(releaseItem);
 
@@ -274,7 +275,7 @@ class Post_About_Github_Releases {
 						githubReleaseIds.splice(index, 1);
 						githubReleaseIdsInput.value = githubReleaseIds.join(',');
 
-						selectedReleases.querySelectorAll('span').forEach(item => {
+						selectedReleases.querySelectorAll('li').forEach(item => {
 							if (item.textContent === version) {
 								item.remove();
 							}
